@@ -9,6 +9,10 @@ import com.jiayuan.factory.factoryMethod.factory.CocacolaFactory;
 import com.jiayuan.factory.factoryMethod.factory.Factory;
 import com.jiayuan.factory.factoryMethod.factory.PesiColaFactory;
 import com.jiayuan.factory.factoryMethod.product.Cola;
+import com.jiayuan.templateMethod.AudioInspect;
+import com.jiayuan.templateMethod.InspectMethod;
+import com.jiayuan.templateMethod.RobotInspect;
+import com.jiayuan.templateMethod.VideoInspect;
 import org.junit.Test;
 
 /**
@@ -64,6 +68,20 @@ public class FactoryTest {
         hikvisionEncoder.autoRegister();
         // 5.使用海康摄像头
         hikvisionCamera.goPreset();
+    }
+
+    @Test
+    public void testTemplateMethod() {
+        InspectMethod videoInspect = new VideoInspect();
+        videoInspect.execute();
+        System.out.println("============================");
+
+        InspectMethod robotInspect = new RobotInspect();
+        robotInspect.execute();
+        System.out.println("============================");
+
+        InspectMethod audioInspect = new AudioInspect();
+        audioInspect.execute();
     }
 
 
